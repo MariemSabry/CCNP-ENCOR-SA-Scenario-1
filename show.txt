@@ -1,0 +1,3 @@
+
+
+show run interface e1/1

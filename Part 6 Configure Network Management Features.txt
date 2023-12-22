@@ -1,0 +1,97 @@
+R2
+-------
+ntp master 3
+end
+
+
+R1
+------
+ntp server 2.2.2.2
+logging trap warning
+ logging host 10.0.100.5
+ logging on
+ip access-list standard SNMP-NMS
+  permit host 10.0.100.5
+  exit
+ snmp-server contact Cisco Student
+ snmp-server community ENCORSA ro SNMP-NMS
+ snmp-server host 10.0.100.5 version 2c ENCORSA
+ snmp-server ifindex persist
+ snmp-server enable traps bgp
+ snmp-server enable traps config
+ snmp-server enable traps ospf
+end
+
+
+
+Router R3
+------------
+ ntp server 10.0.10.1
+ logging trap warning
+ logging host 10.0.100.5
+ logging on
+ip access-list standard SNMP-NMS
+  permit host 10.0.100.5
+  exit
+ snmp-server contact Cisco Student
+ snmp-server community ENCORSA ro SNMP-NMS
+ snmp-server host 10.0.100.5 version 2c ENCORSA
+ snmp-server ifindex persist
+ snmp-server enable traps config
+ snmp-server enable traps ospf
+end
+
+
+
+Switch D1
+----------
+ ntp server 10.0.10.1
+ logging trap warning
+ logging host 10.0.100.5
+ logging on
+ip access-list standard SNMP-NMS
+  permit host 10.0.100.5
+  exit
+ snmp-server contact Cisco Student
+ snmp-server community ENCORSA ro SNMP-NMS
+ snmp-server host 10.0.100.5 version 2c ENCORSA
+ snmp-server ifindex persist
+ snmp-server enable traps config
+ snmp-server enable traps ospf
+end
+
+
+
+Switch D2
+------------
+ ntp server 10.0.10.1
+ logging trap warning
+ logging host 10.0.100.5
+ logging on
+ip access-list standard SNMP-NMS
+  permit host 10.0.100.5
+  exit
+ snmp-server contact Cisco Student
+ snmp-server community ENCORSA ro SNMP-NMS
+ snmp-server host 10.0.100.5 version 2c ENCORSA
+ snmp-server enable traps config
+ snmp-server enable traps ospf
+end
+
+
+Switch A1
+-------------
+ ntp server 10.0.10.1
+ logging trap warning
+ logging host 10.0.100.5
+ logging on
+ip access-list standard SNMP-NMS
+  permit host 10.0.100.5
+  exit
+ snmp-server contact Cisco Student
+ snmp-server community ENCORSA ro SNMP-NMS
+ snmp-server host 10.0.100.5 version 2c ENCORSA
+ snmp-server ifindex persist
+ snmp-server enable traps config
+ snmp-server enable traps ospf
+end

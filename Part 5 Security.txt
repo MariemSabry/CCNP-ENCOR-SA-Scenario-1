@@ -1,0 +1,22 @@
+All Devices:
+-------------------
+enable algorithm-type SCRYPT secret cisco12345cisco
+username sadmin privilege 15 algorithm-type SCRYPT secret cisco12345cisco
+
+
+! All devices except R2:
+--------------------------
+aaa new-model
+radius server RADIUS
+ address ipv4 10.0.100.6 auth-port 1812 acct-port 1813
+ key $trongPass
+ exit
+aaa authentication login default group radius local
+end
+
+
+
+R2
+----
+enable secret cisco12345cisco
+username sadmin privilege 15 secret cisco12345cisco 
